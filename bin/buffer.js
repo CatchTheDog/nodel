@@ -25,3 +25,19 @@ let copy = JSON.parse(json,(key,value) =>{
     return value && value.type === 'Buffer' ? Buffer.from(value.data) : value;
 });
 console.log(copy);
+//缓冲区合并
+let buffer1 = Buffer.from('nodejs');
+let buffer2 = Buffer.from('learn');
+let buffer3 = Buffer.from('practice');
+console.log(Buffer.concat([buffer1,buffer2,buffer3],11).toString());
+//缓冲区比较
+console.log(Buffer.from('AEC').compare(Buffer.from('ABCD')));
+//拷贝缓冲区
+let buf1 = Buffer.from('abcdefghijkl');
+let buf2 = Buffer.from('RUNOOB');
+buf2.copy(buf1,2,1,4);
+console.log(buf1.toString());
+//缓冲区裁剪
+let _buffer_1 = Buffer.from('runoob');
+let _buffer_2 = _buffer_1.slice(0,2);
+console.log(_buffer_2.toString());
